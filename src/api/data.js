@@ -49,3 +49,53 @@ export const getTreeSelectData = () => {
     method: 'get'
   })
 }
+
+export const getAllConfigData = app => {
+  return axios.request({
+    url: 'api/config/prefix/' + app,
+    method: 'get'
+  })
+}
+
+export const getAllAnnotationData = app => {
+  return axios.request({
+    url: 'api/annotation/prefix/' + app,
+    method: 'get'
+  })
+}
+
+export const putConfigData = (app, key, value) => {
+  return axios.request({
+    url: 'api/config/' + app + '/' + key,
+    data: 'value=' + encodeURIComponent(value),
+    method: 'put',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+}
+
+export const putAnnotationData = (app, key, value) => {
+  return axios.request({
+    url: 'api/annotation/' + app + '/' + key,
+    data: 'value=' + encodeURIComponent(value),
+    method: 'put',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+}
+
+export const deleteConfigData = (app, key) => {
+  return axios.request({
+    url: 'api/config/' + app + '/' + key,
+    method: 'delete'
+  })
+}
+
+export const deleteAnnotationData = (app, key) => {
+  return axios.request({
+    url: 'api/annotation/' + app + '/' + key,
+    method: 'delete'
+  })
+}
